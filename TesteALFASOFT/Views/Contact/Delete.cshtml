@@ -1,0 +1,30 @@
+﻿@model Contact
+
+<h2>Deletar Contacto</h2>
+
+<h3>Are you sure you want to delete this contact?</h3>
+<dl>
+    <dt>Name:</dt>
+    <dd>@Model.Name</dd>
+    <dt>Contact:</dt>
+    <dd>@Model.ContactNumber</dd>
+    <dt>Email:</dt>
+    <dd>@Model.EmailAddress</dd>
+</dl>
+@*@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    //<a class="btn btn-danger" asp-controller="Contact" asp-action="Delete">Deletar</a>
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    //<a asp-action="Index" class="btn btn-default">Cancel</a>
+}*@
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form class="form-actions no-color" asp-action="Delete">
+            <input type="hidden" asp-for="ID"/>
+            <input type="submit" value="Delete" class="btn btn-danger"/>| 
+            <a asp-action="Index">Cancelar</a>
+        </form>
+    
+}
